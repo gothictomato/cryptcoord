@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://gitlab.com/An0/SimpleDiscordCrypt/-/avatar" height="50" width="50">
+    <img src="https://github.com/gothictomato/cryptcoord/blob/master/logo.png?raw=true" height="50" width="50">
     SimpleDiscordCrypt
 </h1>
 
@@ -8,7 +8,7 @@ Discord message encryption plugin, it gives end-to-end client side encryption fo
 For `Chrome` (and similar) use the [extension](https://chrome.google.com/webstore/detail/simplediscordcrypt/hbplgmpfdabobhnadbfpknppljdfkiia)<br>
 For `mobile` you should try Yandex Browser, it's Chromium based and supports extensions<br>
 [`Firefox` is kind of supported](https://addons.mozilla.org/en-US/firefox/addon/simplediscordcrypt/) but there is incompatibility because of https://bugzilla.mozilla.org/show_bug.cgi?id=1048931<br>
-If nothing works, install it as a [userscript](https://gitlab.com/An0/SimpleDiscordCrypt/raw/master/SimpleDiscordCrypt.user.js) (with [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)) or include the js file somehow else<br>
+If nothing works, install it as a [userscript](https://github.com/gothictomato/cryptcoord/raw/master/SimpleDiscordCrypt.user.js) (with [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)) or include the js file somehow else<br>
 <br>
 Please do not download this plugin from untrusted sources, for example there is one in chrome store with the same name<br>
 <br>
