@@ -21,7 +21,7 @@ jobs:
               run: |
                 git push --set-upstream origin gitlab-sync
                 git push origin
-                gh pr create -B master -H gitlab-sync --title 'Merge GitLab changes' --body 'Automatic PR'
+                gh pr create -B master -H gitlab-sync --title 'Merge GitLab changes' --body 'Automatic PR' || true
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
