@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         SimpleDiscordCrypt
-// @namespace    https://gitlab.com/An0/SimpleDiscordCrypt
+// @namespace    https://github.com/gothictomato/cryptcoord
 // @version      1.7.3.2
 // @description  I hope people won't start calling this SDC ^_^
 // @author       An0
 // @license      LGPLv3 - https://www.gnu.org/licenses/lgpl-3.0.txt
-// @downloadURL  https://gitlab.com/An0/SimpleDiscordCrypt/raw/master/SimpleDiscordCrypt.user.js
-// @updateURL    https://gitlab.com/An0/SimpleDiscordCrypt/raw/master/SimpleDiscordCrypt.meta.js
-// @icon         https://gitlab.com/An0/SimpleDiscordCrypt/raw/master/logo.png
+// @downloadURL  https://github.com/gothictomato/cryptcoord/raw/master/SimpleDiscordCrypt.user.js
+// @updateURL    https://github.com/gothictomato/cryptcoord/raw/master/SimpleDiscordCrypt.meta.js
+// @icon         https://github.com/gothictomato/cryptcoord/raw/master/logo.png
 // @match        https://*.discord.com/channels/*
 // @match        https://*.discord.com/activity
 // @match        https://*.discord.com/login*
@@ -19,7 +19,7 @@
 // @grant        unsafeWindow
 // @grant        GM_xmlhttpRequest
 // @connect      cdn.discordapp.com
-// @connect      gitlab.com
+// @connect      github.com
 // ==/UserScript==
 
 // Credits for inspiration to the original DiscordCrypt
@@ -27,7 +27,7 @@
 (function () {
   'use strict';
 
-  const BlacklistUrl = 'https://gitlab.com/An0/SimpleDiscordCrypt/raw/master/blacklist.txt';
+  const BlacklistUrl = 'https://github.com/gothictomato/cryptcoord/raw/master/blacklist.txt';
 
   const SavedLocalStorage = typeof localStorage !== 'undefined' ? localStorage : null;
   const FixedCsp = typeof CspDisarmed !== 'undefined' ? CspDisarmed : false;
@@ -4059,7 +4059,7 @@ ${HeaderBarSelector}, ${HeaderBarChildrenSelector} { overflow: visible !importan
         author: {
           name: '-----ENCRYPTED MESSAGE-----',
           icon_url: 'https://i.imgur.com/pFuRfDE.png',
-          url: 'http://gitlab.com/An0/SimpleDiscordCrypt',
+          url: 'https://github.com/gothictomato/cryptcoord',
         },
         description: payload,
         footer: {
