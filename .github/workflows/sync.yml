@@ -19,6 +19,7 @@ jobs:
                 git pull gl master:gitlab-sync || true
                 git checkout gitlab-sync
                 git remote remove gl
+                git rebase master
             - name: create pull request
               run: |
                 git push --set-upstream origin gitlab-sync
