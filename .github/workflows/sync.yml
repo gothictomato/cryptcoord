@@ -16,7 +16,7 @@ jobs:
                 git remote add gl https://gitlab.com/An0/SimpleDiscordCrypt.git
                 git branch -d gitlab-sync || true
                 git push origin :gitlab-sync || true
-                git pull gl master:gitlab-sync --rebase || true
+                git pull gl master:gitlab-sync || true
                 git checkout gitlab-sync
                 git remote remove gl
             - name: create pull request
