@@ -51,4 +51,4 @@
 
 
 <h2>Contact Us</h2>
-<p>If you have any questions about this Privacy Policy, please contact us: https://gitlab.com/An0/SimpleDiscordCrypt/issues</p>
+<p>If you have any questions about this Privacy Policy, please contact us: https://github.com/gothictomato/cryptcoord/issues</p>
