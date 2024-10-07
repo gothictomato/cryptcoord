@@ -19,7 +19,7 @@ jobs:
                 git remote remove gl
             - name: Merge & Push
               run: |
-                git merge origin/master -s ours
+                git merge origin/master -s ours --allow-unrelated-histories
                 git push --set-upstream origin gitlab-sync
                 git push origin
             - name: Create PR
