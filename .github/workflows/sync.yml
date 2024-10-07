@@ -16,13 +16,16 @@ jobs:
                 git remote add gl https://gitlab.com/An0/SimpleDiscordCrypt.git
                 git pull gl master:gitlab-sync || true
                 git remote remove gl
+                git checkout gitlab-sync
             - name: Merge & Push
               run: |
                 git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
                 git config user.name "${{ github.actor }}"
-                git merge -s ours --allow-unrelated-histories gitlab-sync
-                git checkout gitlab-sync
-                git merge master
+                git merge -s ours --allow-unrelated-histories master
+                git checkout master
+                git merge gitlab-sync
+                git branch -d gitlab-sync
+                git branch -m gitlab-sync
                 git push --set-upstream origin gitlab-sync
                 git push origin
             - name: Create PR
