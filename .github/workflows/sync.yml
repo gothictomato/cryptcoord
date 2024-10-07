@@ -1,0 +1,33 @@
+name: Sync
+on: 
+    schedule:
+      - cron:  '0 0 * * 0'
+    workflow_dispatch:
+
+jobs:
+    sync:
+        name: Sync
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+            - name: Checkout Remote
+              run: |
+                git remote add gl https://gitlab.com/An0/SimpleDiscordCrypt.git
+                git pull gl master:gitlab-sync || true
+                git checkout gitlab-sync
+                git remote remove gl
+            - name: Merge & Push
+              run: |
+                git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
+                git config user.name "${{ github.actor }}"
+                git merge origin/master -X ours --allow-unrelated-histories
+                git push --set-upstream origin gitlab-sync
+                git push origin
+            - name: Create PR
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                gh pr create -B master -H gitlab-sync --title 'Merge GitLab changes' --body 'Automatic PR' || true
+              
+          
