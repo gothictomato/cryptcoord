@@ -14,18 +14,20 @@ jobs:
             - name: Checkout Remote
               run: |
                 git remote add gl https://gitlab.com/An0/SimpleDiscordCrypt.git
-                git pull gl master:gitlab-sync || true
+                git fetch gl master
+                git checkout -b gitlab-sync gl/master
                 git remote remove gl
-                git checkout gitlab-sync
-            - name: Merge & Push
+            - name: Cherry-Pick
               run: |
                 git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
                 git config user.name "${{ github.actor }}"
-                git merge -s ours --allow-unrelated-histories master
+                common_ancestor=$(git merge-base master gitlab-sync)
                 git checkout master
-                git merge gitlab-sync
+                git cherry-pick $common_ancestor..gitlab-sync
                 git branch -d gitlab-sync
                 git branch -m gitlab-sync
+            - name: Push
+              run: |
                 git push --set-upstream origin gitlab-sync
                 git push origin
             - name: Create PR
