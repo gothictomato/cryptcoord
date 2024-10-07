@@ -21,7 +21,7 @@ jobs:
               run: |
                 git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
                 git config user.name "${{ github.actor }}"
-                git merge origin/master -s ours --allow-unrelated-histories
+                git merge origin/master -s theirs --allow-unrelated-histories
                 git push --set-upstream origin gitlab-sync
                 git push origin
             - name: Create PR
