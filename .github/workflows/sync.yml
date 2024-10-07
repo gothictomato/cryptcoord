@@ -19,6 +19,8 @@ jobs:
                 git remote remove gl
             - name: Cherry-Pick
               run: |
+                echo "$(git branch -v)"
+                exit 0
                 common_ancestor=$(git merge-base master gitlab-sync)
                 echo "> $common_ancestor"
                 git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
