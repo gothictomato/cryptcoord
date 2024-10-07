@@ -11,16 +11,19 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4.1.1
-            - name: Checkout GitLab
+            - name: Checkout Remote
               run: |
                 git remote add gl https://gitlab.com/An0/SimpleDiscordCrypt.git
                 git pull gl master:gitlab-sync || true
                 git checkout gitlab-sync
                 git remote remove gl
-            - name: create pull request
+            - name: Merge & Push
               run: |
+                git merge origin/master -s ours
                 git push --set-upstream origin gitlab-sync
                 git push origin
+            - name: Create PR
+              run: |
                 gh pr create -B master -H gitlab-sync --title 'Merge GitLab changes' --body 'Automatic PR' || true
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
