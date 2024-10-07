@@ -24,7 +24,7 @@ jobs:
                 common_ancestor=$(git merge-base master gitlab-sync)
                 git checkout master
                 git cherry-pick $common_ancestor..gitlab-sync -X theirs
-                git branch -d gitlab-sync
+                git branch -D gitlab-sync
                 git branch -m gitlab-sync
             - name: Push
               run: |
