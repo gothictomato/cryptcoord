@@ -19,12 +19,15 @@ jobs:
                 git remote remove gl
             - name: Merge & Push
               run: |
+                git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
+                git config user.name "${{ github.actor }}"
                 git merge origin/master -s ours --allow-unrelated-histories
                 git push --set-upstream origin gitlab-sync
                 git push origin
             - name: Create PR
-              run: |
-                gh pr create -B master -H gitlab-sync --title 'Merge GitLab changes' --body 'Automatic PR' || true
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                gh pr create -B master -H gitlab-sync --title 'Merge GitLab changes' --body 'Automatic PR' || true
+              
           
