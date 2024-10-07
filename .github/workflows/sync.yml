@@ -11,6 +11,8 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4.1.1
+              with:
+                fetch-depth: 0
             - name: Checkout Remote
               run: |
                 git remote add gl https://gitlab.com/An0/SimpleDiscordCrypt.git
@@ -19,12 +21,9 @@ jobs:
                 git remote remove gl
             - name: Cherry-Pick
               run: |
-                echo "$(git merge-base master gitlab-sync)"
-                exit 0
-                common_ancestor=$()
-                echo "> $common_ancestor"
                 git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
                 git config user.name "${{ github.actor }}"
+                common_ancestor=$(git merge-base master gitlab-sync)
                 git checkout master
                 git cherry-pick $common_ancestor..gitlab-sync -X theirs
                 git branch -D gitlab-sync
